@@ -13,14 +13,28 @@ export default class App extends Component {
     };
   }
 
+  // retrieve data using Fetch
+  // componentDidMount() {
+  //   fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+  //     .then(response => response.json())
+  //     .then(responseData => {
+  //       this.setState({gifs: responseData.data});
+  //     })
+  //     .catch(error => {
+  //       console.log("Error fetching and parsing data", error);
+  //     });
+  // }
+
+  // retrieve data using Axios (converts to JSON automatically)
   componentDidMount() {
-    fetch('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({gifs: responseData.data});
+    axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+      .then(response => {
+        this.setState({
+          gifs: response.data.data
+        })
       })
       .catch(error => {
-        console.log("Error fetching and parsing data", error);
+        console.log('Error fetching and parsing data', error);
       });
   }
 
