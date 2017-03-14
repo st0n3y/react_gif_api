@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 
 export default class SearchForm extends Component {
   
-  state = {
-    searchText: ''
-  }
+  // state = {
+  //   searchText: ''
+  // }
   
   onSearchChange = e => {
-    this.setState({ searchText: e.target.value });
+    // this.setState({ searchText: e.target.value });
   }
   
   handleSubmit = e => {
     e.preventDefault();
+    // This line unneeded if using ref to access value directly from DOM
+    // this.props.onSearch(this.state.searchText);
     this.props.onSearch(this.query.value);
     e.currentTarget.reset();
   }
