@@ -14,8 +14,8 @@ const GifList = props => {
   
 	return(
 		<ul className="gif-list">
-	    	{gifs}
-	    </ul> 
+	  	{gifs}
+	  </ul> 
 	);
 }
 
